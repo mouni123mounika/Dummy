@@ -1,0 +1,4 @@
+2. select Staff_code,Staff_name,Dept_code, HIREDATE 
+   From Staff_master 
+   Where (extract(year from sysdate)-extract(year from hiredate))>15 
+   ORDER BY HireDate;

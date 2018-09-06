@@ -1,0 +1,19 @@
+5.Select Staff_Name  
+  From Staff_master 
+  where Staff_Name like '%_%';
+
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.

@@ -1,0 +1,22 @@
+
+3.Select Staff_Name,Round(Months_between(sysdate,Hiredate)) 
+  As  monthsworked  
+  from staff_master 
+  order by monthsworked;
+
+
+STAFF_NAME                                         MONTHSWORKED
+-------------------------------------------------- ------------
+Rahul                                                       175
+Arvind                                                      186
+Raviraj                                                     186
+Smith                                                       196
+Shyam                                                       197
+Mohan                                                       198
+Ram                                                         198
+Allen                                                       207
+Anil                                                        208
+John                                                        210
+
+10 rows selected.
+

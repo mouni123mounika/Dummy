@@ -1,0 +1,104 @@
+1.SELECT UPPER(‘Hello’)FROM Dual;
+SELECT LOWER(‘Hello’)FROM Dual;
+SELECT INITCAP(‘Hello’)FROM Dual;
+SELECT CONCAT(‘Hello’,'HI')FROM Dual;
+SELECT SUBSTR(‘Hello’,'HI','WELCOME')FROM Dual;
+SELECT LTRIM(‘Hello’)FROM Dual;
+SELECT RTRIM(‘Hello’)FROM Dual;
+SELECT LENGTH(‘Hello’)FROM Dual;
+---------------------------------------------------------------------------------------------------------
+SELECT staff_code,staff_nameFROM staff_master
+WHERE staff_dob
+BETWEEN ’01-Jan-1980’
+AND ’31-Jan-1980’;
+
+SELECT dept_codeFROM department_master
+WHERE dept_nameIN ( ‘Computer Science’, ‘Mechanics’);
+
+SELECT dept_codeFROM department_master
+WHERE dept_nameIN ( ‘Computer Science’, ‘Mechanics’);
+
+SELECT book_code,book_nameFROM book_master
+WHERE book_pub_authorLIKE ‘%Kanetkar%’ ;
+
+SELECT staff_code,staff_name,staff_salFROM staff_master
+WHERE dept_code= 10
+AND staff_dob> ’01-Jan-1945’;
+
+SELECT book_codeFROM book_master
+WHERE book_pub_authorLIKE ‘%Kanetkar%’
+OR book_nameLIKE ‘%Pointers%’;
+---------------------------------------------------------------------------------------------------------------
+1.select last_day(sysdate) from dual;
+
+2.select next_day(sysdate,'sunday') from dual;
+
+3.select sessiontimeZone,current_date,current_timestamp from dual;
+
+4.select extract(year from sysdate)from dual;
+
+5.select extract(month from date'2011-04-01')from dual;
+
+6.select extract(month from book_issue_date)from book_transactions;
+
+7.select student_code,(book_actual_return_date_
+book_expected_return_date)As Patable_Days 
+from book_transactions 
+where book_code=160;
+
+8.select student_dob,extract(year from sysdate)-extract(year from student_dob)as age from student_master;
+
+9.select staff_code,hiredate
+from staff_master where
+hiredate=to_date('january 15,2003','month DD,YYYY');
+
+10.select to_timestamp(sysdate,'DD-MM-YY')from dual;
+
+11.NVL :select student_code,student_name,NVL(student_address,'NOt Filled')as student_address,NOt Filled
+from Student_Master;
+
+12.JOINTS:-----------------------------------------------------------------------------------
+   
+   create table employee_152682(EID Int,Ename VARCHAR2(15),Age Int);
+   Create Table Address_152682(Eid Int,City VARCHAR2(15),State VARCHAR2(15));
+
+   Insert into Employee_152682 values(1,'Rajiv',30);
+   Insert into Employee_152682 values(2,'Kiran',30);
+   Insert into Employee_152682 values(3,'Bharath',30);
+   Insert into Employee_152682 values(4,'Shankar',30);
+
+   Insert Into Address_152682 Values(1,'Hyderabad','Telangana');
+   Insert Into Address_152682 Values(2,'Amaravathi','Ap');
+   Insert Into Address_152682 Values(3,'Chennai','Tn');
+   Insert Into Address_152682 Values(5,'Bangalore','Karnataka');
+
+   SELECT E.eID,EnAME,A.CITY,A.sTATE
+   FROM eMPLOYEE_152682 E JOIN ADDRESS_152682 A
+   ON E.EID=A.EID;
+
+
+   SELECT E.eID,EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E inner JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   SELECT E.eID,EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E outer JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   [inner & outer are optional, no change]
+   SELECT E.eID,EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E full outer JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   SELECT E.eID,EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E left outer  JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   SELECT E.eID,EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E right outer JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   [nvl]
+   SELECT nvl(E.Eid,A.Eid),EnAME,A.CITY,A.sTATE FROM eMPLOYEE_152682 E full outer JOIN ADDRESS_152682 A  ON E.EID=A.EID;
+   --------------------------------------------------------------------------------------------
+   CROSS JOIN:
+
+   create table students(sname varchar(20));
+   create table subjects(subname varchar(20));
+
+   insert into students values('Rajiv');
+   insert into students values('Kiran');
+   insert into students values('Shankar');
+
+   insert into subjects values('English');
+   insert into subjects values('Maths');
+   insert into subjects values('hINDI');
+
+   select sname,subname from students CROSS JOIN subjects; 
+
+               

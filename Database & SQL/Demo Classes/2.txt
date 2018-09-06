@@ -1,0 +1,190 @@
+create table employee99(Id int,Name varchar2(20),department varchar2(20),salary int);
+
+To create table from another table:- create table ITemployee123 as select Id,name,department,salary 
+                                     from employee100 where department='IT';
+
+to Add :- alter table employee100 add(emailId varchar2(20));
+to remove:- alter table employee100 drop column emailId;
+UPDATE:- update employee99 set salary =45000 where Id=2;
+         update employee99 set salary =(110*SALARY)/100;
+
+Insert Into employee99 values(1,'Rajiv','IT',54000);
+Insert Into employee99 values(2,'Kiran','Admin',44000);
+Insert Into employee99 values(3,'Bharath','IT',60000);
+Insert Into employee99 values(4,'Shankar','Sales',84000);
+Insert Into employee99 values(5,'Subhash','Admin',24000);
+Insert Into employee99 values(6,'Bhaskar','Sales',94000);
+
+SELECT * FROM eMPLOYEE99;
+
+       ID NAME                 DEPARTMENT               SALARY
+--------- -------------------- -------------------- ----------
+        1 Rajiv                IT                        54000
+        2 Kiran                Admin                     44000
+        3 Bharath              IT                        60000
+        4 Shankar              Sales                     84000
+        5 Subhash              Admin                     24000
+        6 Bhaskar              Sales                     94000
+
+BASICS:select name(id,department,slary) from employee99
+
+
+1.PRINT EMPLOYEE WHO BELONGS TO 'IT','SALES'[2 QUIRIES IN,=]
+
+select * from employee99 Where department In ('IT','Sales');
+select * from employee99 Where department=('IT','Sales');
+
+        ID NAME                 DEPARTMENT               SALARY
+---------- -------------------- -------------------- ----------
+         1 Rajiv                IT                        54000
+         3 Bharath              IT                        60000
+         4 Shankar              Sales                     84000
+         6 Bhaskar              Sales                     94000
+
+
+2.PRINT EMPLOYEE DETAILS SALARY>60000
+
+select * from employee99 where salary>60000;
+
+       ID NAME                 DEPARTMENT               SALARY
+--------- -------------------- -------------------- ----------
+        4 Shankar              Sales                     84000
+        6 Bhaskar              Sales                     94000
+
+3.PRINT LIST OF DEPARTMENTS
+
+select distinct department from employee99;
+
+DEPARTMENT
+--------------------
+IT
+Sales
+Admin
+
+4.PRINT LIST OF DEPARTMENTS WITH AVERAGE SALARY
+
+select department,avg(salary) from employee99 group by department;
+
+DEPARTMENT           AVG(SALARY)
+-------------------- -----------
+IT                         57000
+Sales                      89000
+Admin                      34000
+
+
+5.PRINT LIST OF DEPARTMENTS WITH AVERAGE SALARY >50000
+
+
+DEPARTMENT           AVG(SALARY)
+-------------------- -----------
+IT                         57000
+Sales                      89000
+
+
+6.WRITE QUERY TO PRINT EMPLOYEE DETAILS WITH  HEIGHEST SALARY
+
+select name,salary from employee99 where salary=(select max(salary) from employee99);
+select name,salary from employee99 where salary=(select min(salary) from employee99);
+
+NAME                     SALARY
+-------------------- ----------
+Bhaskar                   94000
+
+7.WRITE QUERY TO PRINT EMPLOYEE DETAILS WITH SECOND HEIGHEST SALARY
+
+select name,salary from employee99 where salary=(select max(salary) from employee99 
+                                             where salary<(select max(salary) from employee99));
+
+NAME                     SALARY
+-------------------- ----------
+Shankar                   84000
+
+
+---------------------------------------------------------------------------------------------------
+KEYS:- Super Key:unique(id,name,emailid,adhar)
+   Candicate key:id,emailid,adhar
+     Primary key:id [a table hv only 1 primary key]
+    Alternat key:email,adhar
+
+ Primary key:
+=============
+1.A Table can have only one primary key
+2.primary key is used to uniquely identify a particular record 
+3. primary key will not allow null values
+4. primary key will not allow duplicate values
+5.A primary key formed with combination of multiple columns is called composite primary key.
+
+UNIQUE KEY:
+===========
+1.A table can have more than one unique keys
+2.it will allow null values
+3.it will not allow duplicate values
+_________________________________________________________________________________________
+create table employee98(id int PRIMARY KEY,name varchar2(20)NOT NULL,
+                         age int CHECK(age>14),emailid varchar2(20) UNIQUE,
+                         company varchar2(20) DEFAULT('Capgemini'));
+
+create table address98(AddressId int primary key,Id references Employee98(Id),
+                       
+
+Insert into employee98 values(1,'Rajiv',22,'test@test.com','Capgemini');
+
+Insert into employee98 (id,name,age,emailid)
+values(2,'Kiran',23,null);
+
+Insert into employee98 (id,name,age,emailid)
+values(3,'ABC',12,'test2@test.com');
+
+
+Insert into employee98 (id,name,age,emailid)
+values(3,'Kiran',12,'test@test2.com');
+__________________________________________________________________________________________
+
+Create Table Customers(CID int Primary Key,CName varchar2(20));
+create table orders(Oid int Primary Key,Cid int references customers(CID),Oprice int);
+create table Products(Pid int CONSTRAINT Pid_pk primary key,
+                      pname varchar2(20) constraint pname_uk unique);
+
+TO RENAME:- alter table products RENAME column pname to productname;
+
+insert into customers values (1001,'rajiv');
+insert into orders values (5001,1001,24000);
+
+delete from orders where cid=1001;
+delete from customers where cid=1001;
+_____________________________________________________________________________________
+
+CREATE TABLE EMPLOYEE97(ID INT,NAME VARCHAR(20));
+
+ALTER TABLE EMPLOYEE97 ADD PRIMARY KEY(ID);
+___________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

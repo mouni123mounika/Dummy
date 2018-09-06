@@ -1,0 +1,5 @@
+3. select staff_code,staff_name,design_code,dept_code,staff_dob,hiredate,
+   staff_sal,staff_address 
+   from staff_master
+   where mgr_code is null;
+

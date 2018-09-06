@@ -1,0 +1,499 @@
+DECLARE
+ v_msg VARCHAR2(20):='HELLO STUDENTS';
+BEGIN
+ dbms_output.put_line(v_msg);
+END;
+/
+
+SET SERVEROUTPUT ON;
+_______________________________________
+Writing Anonymous Block:
+========================
+DECLARE 
+ v_fn INTEGER:=10;
+ v_sn INTEGER:=20;
+ v_sum INTEGER;
+ v_example REAL;[real shows decimal values]
+BEGIN
+ v_sum :=v_fn + v_sn;
+ DBMS_OUTPUT.PUT_LINE('Sum of Numbers: '|| v_sum);
+ //v_example:= 50.0/3.0;
+   v_example:= ROUND(50.0/3.0,2);
+ DBMS_OUTPUT.PUT_LINE('Real Number Data: '|| v_example);
+ END;
+ /
+
+Sum of Numbers: 30
+Real Number Data: 16.67
+________________________________________________
+Declaring Using % type attribute
+================================
+create table Empoloyee201
+(
+ID INT,
+name VARCHAR2(20),
+Age Int
+);
+
+Insert into Empoloyee201 values(1,'Rajiv',30);
+
+DECLARE
+ v_id Empoloyee201.ID%type:=1;
+BEGIN
+ DBMS_OUTPUT.PUT_LINE(v_id);
+END;
+/
+_________________________________________________
+%ROWTYPE
+===============================
+DECLARE
+ emp_record Empoloyee201 %ROWTYPE;
+BEGIN
+ SELECT * INTO emp_record From Empoloyee201 where ID=1;
+ dbms_output.put_line('ID'|| emp_record.ID);
+ DBMS_OUPUT.PUT_LINE('Name'|| emp_record.Name);
+ DBMS_OUPUT.PUT_LINE('Age'|| emp_record.Age);
+END;
+/
+______________________________________________
+DECLARE
+type ExamScores is RECORD
+(M1 INT,
+ M2 INT,
+ M3 INT,
+ M4 INT);
+ v_myscore ExamScores;
+ v_sum INT;
+BEGIN
+ v_myscore.M1 :=67;
+ v_myscore.M2 :=77;
+ v_myscore.M3 :=80;
+ v_myscore.M4 :=90;
+ v_sum:= v_myscore.M1+v_myscore.M2+v_myscore.M3+v_myscore.M4;
+ dbms_output.put_line('SUM' || v_sum);
+ dbms_output.put_line('Average' || v_sum/4);
+END;
+/
+SUM314
+Average78.5
+_______________________________________________
+EVEN OR ODD
+=========================
+DECLARE
+ v_input Int:=5;
+BEGIN
+ IF(MOD(v_input,2)=0) then
+  dbms_output.put_line('Even');
+  ELSE
+   dbms_output.put_line('Odd');
+END IF;
+END;
+/
+_____________________________________
+
+FACTORS OF A NUMBER
+==========================
+DECLARE
+ v_input NUMBER(4):=20;
+ v_i NUMBER(4):=1;
+BEGIN
+ WHILE(v_i <= v_input) Loop
+    IF(MOD(v_input,v_i)=0)THEN
+      DBMS_OUTPUT.PUT_LINE(v_i);
+      END IF;
+      v_i:= v_i+1;
+      END LOOP;
+END;
+/
+_______________________________________
+FACTORIAL OF A NUMBER
+===============================
+DECLARE
+  v_input NUMBER(4):=4;
+  v_i NUMBER(4):=1;
+  v_result NUMBER(10):=1;
+BEGIN
+ FOR v_i IN 1..v_input Loop
+     v_result := v_result*v_i;
+      END LOOP;
+dbms_output.put_line(v_result);
+END;
+/
+__________________________________________
+ADDING ROWS INTO TABLE USING VARIBLE:
+=================================================
+DECLARE
+ v_id Empoloyee201.Id%type:=2;
+ v_Name Empoloyee201.Name%type:='Bharath';
+ v_Age Empoloyee201.age%type:=25;
+begin
+ insert into empoloyee201 values(v_id,v_name,v_age);
+end;
+/
+___________________________________________________
+DELETING RECORD:
+====================
+DECLARE 
+ v_id Empoloyee201.Id%type:=1;
+BEGIN
+ DELETE from Empoloyee201 Where Id=v_id;
+End;
+/
+__________________________________________________________
+DECLARE 
+ v_counter number(4):=5;
+BEGIN
+ LOOP
+   DBMS_OUTPUT.PUT_LINE
+END LOOP;
+END;
+/
+___________________________________________________________________
+
+1.3:-
+*******
+DECLARE
+ emp_record EMP %ROWTYPE;
+
+BEGIN
+ SELECT * INTO emp_record From Emp where EMPNO=7369;
+
+ dbms_output.put_line('EMPNO'|| emp_record.EMPNO);
+ dbms_output.put_line('EName'|| emp_record.EName);
+ dbms_output.put_line('JOB'|| emp_record.JOB);
+ dbms_output.put_line('MGR'|| emp_record.MGR);
+ dbms_output.put_line('HIREDATE'|| emp_record.HIREDATE);
+ dbms_output.put_line('SAL'|| emp_record.SAL);
+ dbms_output.put_line('DEPTNO'|| emp_record.DEPTNO);
+
+END;
+/
+EMPNO7369
+ENameSMITH
+JOBCLERK
+MGR7902
+HIREDATE17-DEC-80
+SAL800
+DEPTNO20
+
+PL/SQL procedure successfully completed.
+__________________________________________________________________
+1.4:-
+******
+DECLARE
+ emp_record EMP %ROWTYPE;
+ EMP_NAME EMP.ENAME%TYPE:='&nAME';
+
+BEGIN
+ SELECT * INTO emp_record From Emp where ENAME=eMP_nAME;
+
+ dbms_output.put_line('EMPNO'|| emp_record.EMPNO);
+ dbms_output.put_line('EName'|| emp_record.EName);
+ dbms_output.put_line('JOB'|| emp_record.JOB);
+ dbms_output.put_line('MGR'|| emp_record.MGR);
+ dbms_output.put_line('HIREDATE'|| emp_record.HIREDATE);
+ dbms_output.put_line('SAL'|| emp_record.SAL);
+ dbms_output.put_line('DEPTNO'|| emp_record.DEPTNO);
+
+END;
+/
+EMPNO7902
+ENameFORD
+JOBANALYST
+MGR7566
+HIREDATE03-DEC-81
+SAL3000
+DEPTNO20
+
+PL/SQL procedure successfully completed.
+______________________________________________________________
+1.5:-
+*******
+DECLARE 
+BEGIN
+ UPDATE EMP SET SAL=
+ CASE
+ WHEN 30*SAL/100>=5000 THEN SAL+5000
+ WHEN 30*SAL/100<5000 THEN SAL+30*SAL/100
+ END ;
+ dbms_output.put_line('SALARY DETAILS UPDATED');
+ END;
+ /
+________________________________________________________________
+EXCEPTION HANDLING:-
+====================
+DECLARE
+ v_data NUMBER(4):=10;
+ v_temp NUMBER(4):=0;
+ v_output NUMBER(4);
+
+BEGIN
+ v_output:= v_data/v_temp;
+ dbms_output.put_line(v_output);
+
+EXCEPTION
+ WHEN ZERO_DIVIDE THEN
+  dbms_output.put_line('SOME ERROR OCCURED');
+END;
+/
+____________________________________________________________________
+
+DECLARE
+ emp_record EMP %ROWTYPE;
+
+BEGIN
+ SELECT * INTO emp_record From Emp where EMPNO=73695;
+
+ dbms_output.put_line('EMPNO'|| emp_record.EMPNO);
+ dbms_output.put_line('EName'|| emp_record.EName);
+ dbms_output.put_line('JOB'|| emp_record.JOB);
+
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+dbms_output.put_line('RECORD DOES NOT EXIT');
+ END;
+/
+___________________________________________________________________________
+DECLARE
+ dup_deptno EXCEPTION;
+ v_counter binary_integer;
+ v_department number(2):=60;
+BEGIN
+ SELECT count(*) into v_counter FROM department_master
+ WHERE DEPT_CODE=60;
+IF v_counter> 0 THEN 
+   RAISE dup_deptno;
+END IF;
+ INSERT into department_master
+ VALUES(v_department,'new name');
+EXCEPTION
+ WHEN dup_deptno THEN
+dbms_output.put_line('Department Already Exists');
+END;
+/
+___________________________________________________________________________
+
+DECLARE
+ dup_deptno EXCEPTION;
+ v_counter binary_integer;
+ v_department number(2):=70;
+BEGIN
+ SELECT count(*) into v_counter FROM department_master
+ WHERE DEPT_CODE=70;
+IF v_counter> 0 THEN 
+   RAISE dup_deptno;
+END IF;
+ INSERT into department_master
+ VALUES(v_department,'ABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJ');
+EXCEPTION
+ WHEN dup_deptno THEN
+dbms_output.put_line('Department Already Exists');
+END;
+/
+____________________________________________________________
+
+CREATE OR REPLACE PROCEDURE CREATE_DEPT
+(deptNo number, dname varchar2) as
+BEGIN
+ INSERT INTO DEPARTMENT_MASTER VALUES( deptNo, dname);
+END;
+/
+
+execute CREATE_DEPT (deptNo=>80, dname=>'AI');
+_____________________________________________________________
+CREATE OR REPLACE FUNCTION GetFACTORIAL(v_input NUMBER)
+RETURN NUMBER
+AS
+v_i NUMBER(4):=1;
+v_result number(10):=1;
+BEGIN
+ FOR v_i IN 1.. v_input LOOP
+     v_result:=v_result*v_i;
+END LOOP;
+RETURN v_result;
+END GETFACTORIAL;
+/
+
+SELECT GETFACTORIAL(4) FROM DUAL;
+____________________________________________________________________
+
+SUM OF FACTORS OF A NUMBER
+==========================
+CREATE OR REPLACE FUNCTION sumofFactors(v_input NUMBER)
+RETURN NUMBER
+AS
+ v_i NUMBER(4):=1;
+ v_RESULT NUMBER(4):=0;
+BEGIN
+ WHILE(v_i <= v_input) Loop
+    IF(MOD(v_input,v_i)=0) THEN
+      v_result := v_i + v_result;
+      END IF;
+      v_i:= v_i+1;
+      END LOOP;
+
+return v_result;
+
+END sumofFactors;
+/
+_____________________________________________________________________
+
+BIGGEST OF TWO NUMBERS:
+========================
+CREATE OR REPLACE FUNCTION BIGGESTNUMBER(v_input NUMBER,v_input1 Number)
+RETURN NUMBER
+AS
+BEGIN 
+  IF(v_input > v_input1) THEN
+  return v_input ;
+  else
+  return v_input1 ;
+  END IF;
+  END BIGGESTNUMBER;
+  /
+____________________________________________________________________________
+
+CREATE A STORED PROCEDURE TO TAKE EMPID ID AS PARAMETER AND
+RETURN EMPLOYEE NAME;
+-------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE GETEMPNAMEBYID(Id IN NUMBER, NAME OUT VARCHAR2)
+IS
+BEGIN
+SELECT ENAME INTO NAME FROM EMP WHERE
+EMPNO=ID;
+END;
+/
+
+VARIABLE NAME VARCHAR2(50);
+EXECUTE GETEMPNAMEBYID(7369,:NAME);
+PRINT NAME;
+/
+______________________________________________________________________________
+
+CREATE A STORED PROCEDURE TO TAKE STUDENT_CODE AS PARAMETER AND
+PRINT STUDENT_NAME,STUDENT_DOB FROM STUDENT_MASTER TABLE
+-----------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE STUDENT_DETAILS(S_CODE IN NUMBER,S_NAME OUT VARCHAR2,
+                                            S_DOB OUT VARCHAR2)
+IS
+BEGIN
+SELECT STUDENT_NAME,STUDENT_DOB INTO S_NAME,S_DOB FROM STUDENT_MASTER WHERE STUDENT_CODE=S_CODE;
+END STUDENT_DETAILS;
+/
+VARIABLE S_DOB VARCHAR2(50);
+VARIABLE S_NAME VARCHAR2(50);
+EXECUTE STUDENT_DETAILS(1021,:S_NAME,:S_DOB);
+PRINT S_NAME;
+PRINT S_DOB;
+/
+_______________________________________________________________________________________
+
+CREATE TABLE DEPARTMENT_LOG(
+DELETEINFO VARCHAR2(20),
+LOGGING_DATE DATE);
+
+CREATE OR REPLACE TRIGGER AFTER_DELETE_ROW_DEPARTMENT
+AFTER DELETE ON DEPARTMENT_MASTER
+FOR EACH ROW
+BEGIN
+INSERT INTO DEPARTMENT_LOG VALUES('AFTER DELETE,ROW LEVEL',SYSDATE);
+END;
+/
+
+DELETE FROM DEPARTMENT_MASTER WHERE DEPT_CODE=11;
+__________________________________________________________________________
+CREATE TABLE EMPLOYEE202(
+EID INT,NAME VARCHAR2(20)
+);
+
+CREATE TABLE ESALARY(
+EID INT,SALARY INT);
+
+CREATE OR REPLACE TRIGGER EMPLOYEE202_INSERT
+AFTER INSERT
+ ON EMPLOYEE202
+ FOR EACH ROW
+DECLARE
+ ID int;
+BEGIN
+INSERT INTO ESALARY(EID,SALARY) VALUES(:NEW.EID,30000);
+END;
+/
+INSERT INTO EMPLOYEE202 VALUES(1001,'RAJIV');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

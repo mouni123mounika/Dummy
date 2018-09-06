@@ -1,0 +1,47 @@
+2. Select student_name as Name,
+   To_Char(Student_dob,'Month DD YYYY') as Dob 
+   From Student_master  
+   where To_Char(Student_Dob,'Day') Like '%Sunday%'
+   OR TO_Char(Student_Dob,'Day') Like '%Saturday%';
+
+
+NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Ravi
+November  01 1981
+
+Raj
+January   14 1979
+
+Arvind
+January   15 1983
+
+
+NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Mehul
+January   17 1982
+
+Vijay
+January   19 1980
+
+Rajat
+January   20 1980
+
+
+NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Ramesh
+December  27 1980
+
+Amit Raj
+September 28 1980
+
+
+8 rows selected.
