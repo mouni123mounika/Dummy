@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript" >
+function mymethod()
+{
+ //Array Declaration-1
+ //var scoreData= new Array(65,78,90,45,88);
+ 
+ //Array Declaration-2
+ var scoreData =[65,78,90,45,88];
+ var sum=0;
+ for(i=0;i<5;i++)
+  sum+=scoreData[i];
+  document.write("Sum: "+sum);
+  document.write("<br />Average: "+sum/5);
+  document.write("<br />Joined Array: "+scoreData.join(","));
+  
+  var temp;
+  for(j=0;j<scoreData.length;j++)
+   {
+     for(k=0;k<=j;k++)
+	 {
+	  if(scoreData[j]>scoreData[k])
+	  {
+	  temp=scoreData[k];
+	  scoreData[j] = scoreData[k];
+	  scoreData[j]=temp;
+	  }
+	 }
+  //print array elements
+  for(j=0;j<scoreData.length;j++)
+  document.write("</br>"+scoreData[j]);
+ }
+ }
+{ 
+  document.write("<br/><br/> <b>REVERSE</b> </br> <br/>");
+  var reverseData =scoreData.reverse();
+  for(j=0;j<reverseData.length;j++)
+   document.write("<br/>"+reverseData[j]); 
+ }
+ </script>
+</head>
+<body>
+<input type="button" id="btnGo" onclick="return mymethod();" value="Go"/>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title><h1>PRODUCTS</h1></title>
+<script type="text/javascript">
+
+function checkMandatory()
+{
+alert("hi");
+ var txtBDollQty= document.getElementById("txtBDollQty").value;
+ var txtCalculatorQty = document.getElementById("txtCalculatorQty").value;
+ var txtMobileQty = document.getElementById("txtMobileQty").value;
+ var txtLGDVDQty = document.getElementById("txtLGDVDQty").value;
+ if(txtBDollQty=="" && txtCalculatorQty==""&& txtMobileQty==""&& txtLGDVDQty=="")
+   alert('No items Selected');
+ else
+     var bdCount=(document.getElementById("txtBDollQty").value=="")?0:parseInt(document.getElementById("txtBDollQty").value);
+     var calcCount=(document.getElementById("txtCalculatorQty").value=="")?0:parseInt(document.getElementById("txtCalculatorQty").value);
+     var mobileCount=(document.getElementById("txtMobileQty").value=="")?0:parseInt(document.getElementById("txtMobileQty").value);
+     var lgCount=(document.getElementById("txtLGDVDQty").value=="")?0:parseInt(document.getElementById("txtLGDVDQty").value);
+
+ var mywindow=window.open("", "mywindow","toolbar=yes,scrollbars=yes,resizable=yes,top=20,left=150,width=500,height=300");
+ var data="";
+ data=data+"<h1>INVOICE</h1><br><table width60% border=1 cellpadding=10>";
+ data=data+"<tr><th>PRODUCT</th><th>QUANTITY</th><th>PRICE</th><th>TOTAL</th></tr>";
+ if( bdCount!=0)
+ data=data+"<tr><td>Barbie Doll</td><td>"+bdCount+"</td><td>20</td><td>"+bdCount*20+"</td></tr>";
+ if( calcCount!=0)
+  data=data+"<tr><td>Calculator</td><td>"+calcCount+"</td><td>30</td><td>"+calcCount*30+"</td></tr>";
+ if(mobileCount!=0)
+  data=data+"<tr><td>Mobile Phone</td><td>"+mobileCount+"</td><td>40</td><td>"+mobileCount*40+"</td></tr>";
+  if(lgCount!=0)
+   data=data+"<tr><td>LG DVD</td><td>"+lgCount+"</td><td>50</td><td>"+lgCount*50+"</td></tr>";
+   
+   data=data+"</table>";
+   mywindow.document.write(data);
+   }
+</script>
+</head>
+<center>
+<h1 align=center> Products</H1>
+<body bgcolor=Skyblue>
+<table border=2 cellspacing=0 cellpadding=10>
+<tr>
+<td  align=center ><h3>Name</h3></td>
+<td  align=center ><h3>Description</h3></td>
+<td  align=center ><h3>Price</h3></td>
+<td  align=center ><h3>Qty</h3></td>
+</tr>
+<tr>
+<td  align=center >Barbie Doll</td>
+<td  align=center >Beautiful</td>
+<td  align=center >20</td>
+<td  align=center ><h4><input type="text" id="txtBDollQty"></input></</h4></td>
+</tr>
+<tr>
+<td  align=center>Calculator</td>
+<td  align=center>Calculator with latest features</td>
+<td  align=center>30</td>
+<td align=center><input type="text" id="txtCalculatorQty"></input></td>
+</tr>
+<tr>
+<td  align=center>Mobile Phone</td>
+<td  align=center>Camera,Java Games,GPRS</td>
+<td  align=center>40</td>
+<td align=center><input type="text" id="txtMobileQty"></input></td>
+</tr>
+<tr>
+<td align=center >LG DVD</td>
+<td align=center >5 disc changer</td>
+<td align=center >50</td>
+<td align=center ><input type="text" id="txtLGDVDQty"></input></h3></td>
+</tr>
+</table>
+<td colspan=4><input type="button" id=btn onclick="return checkMandatory();"value= Order ></input></td>
+</body>
+</center>
+</html>

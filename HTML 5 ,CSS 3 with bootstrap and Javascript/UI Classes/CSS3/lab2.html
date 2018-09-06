@@ -1,0 +1,62 @@
+<html>
+<head>
+<script>
+	var productsByCategory = {
+		select : [ "-------" ],
+		Electronics : [ "Television", "Laptop", "Phone" ],
+		Grocery : [ "Soap", "Powder" ]
+	}
+
+	function changepro(value) {
+		if (value.length == 0)
+			document.getElementById("products").innerHTML = "<option></option>";
+		else {
+			var proOptions = "";
+			for (categoryId in productsByCategory[value]) {
+				proOptions += "<option>"
+						+ productsByCategory[value][categoryId] + "</option>";
+			}
+			document.getElementById("products").innerHTML = proOptions;
+		}
+	}
+</script>
+</head>
+<body bgcolor="skyblue">
+	<h1 align=center>
+		<font color=white>Product Details</font>
+	</h1>
+	<center>
+		<table
+			style="background-color: skyblue; filter: alpha(opacity = 100); opacity: 10.00; border: 10px white solid;">
+			<tr>
+				<td>Category:</td>
+				<td><select id="category" onChange="changepro(this.value);">
+						<option value="select" selected>Select..</option>
+						<option value="Electronics">Electronics</option>
+						<option value="Grocery">Grocery</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Product:</td>
+				<td><select id="products">
+						<option value="0" selected>---------</option>
+
+
+				</select></td>
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td><input type="text" id="txtOne" /></td>
+			</tr>
+			<tr>
+				<td>TotalPrice:</td>
+				<td><input type="text" id="txtTwo" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit" /></td>
+				<td><input type="reset" value="Clear" /></td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

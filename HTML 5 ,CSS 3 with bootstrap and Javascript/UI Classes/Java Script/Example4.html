@@ -1,0 +1,54 @@
+<html>
+<head>
+<script type="text/javascript" >
+function mymethod()
+{
+  var today=new Date();
+  
+  var datal=5;
+  var data2="Capgemini";
+  var data3=true;
+  var data4=null;
+  
+  var p="2.456";
+  
+  var company="Capgemini";
+  
+  alert("Time : "+today.getTime());
+  alert("Year : "+(today.getYear()+1900));
+  alert("Month : "+today.getMonth());
+  alert("Date : "+today.getDate());
+  
+  alert(10+10);
+  alert("10"+10);
+  alert(10+"10");
+  
+  alert(typeof(data1));
+  alert(typeof(data2));
+  alert(typeof(data3));
+  alert(typeof(data4));
+  
+  alert(parseInt(p));
+  alert(parseFloat(p));
+  
+  alert(company.length);
+  alert(company.charAt(2));
+  alert(company.concat(" Technologies"," Limited"));
+  alert(company);
+  alert(company.toUpperCase());
+  alert(company.toLowerCase());
+  alert(company.substr(3,3));
+  document.write(company.fontsize(7));
+  document.write(company.fontsize(6));
+  document.write(company.fontsize(5));
+  document.write(company.fontsize(4));
+  document.write(company.fontsize(3));
+  document.write(company.fontsize(2));
+  document.write(company.fontsize(1));
+ }
+ </script>
+</head>
+<body>
+<input type="button" id="btnGo" onclick="return mymethod();" value="Go"/>
+</body>
+</html>

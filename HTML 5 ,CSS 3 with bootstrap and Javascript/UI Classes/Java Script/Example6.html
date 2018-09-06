@@ -1,0 +1,18 @@
+<html>
+<head>
+<script type="text/javascript" >
+function DisplayValues()
+{
+  alert(document.getElementById('txtFN').value);
+  alert(document.forms[0].txtFN.value);
+  }
+ </script>
+</head>
+<body>
+<form>
+First Name: <input type="text" id="txtFN"> </input>
+<br/><br/>
+<input type="button" id="btnGo" onclick="return DisplayValues();" value="Go"/>
+</form>
+</body>
+</html>

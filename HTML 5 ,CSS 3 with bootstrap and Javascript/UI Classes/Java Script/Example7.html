@@ -1,0 +1,40 @@
+<html>
+<head>
+<script type="text/javascript" >
+function DisplayValues()
+{
+ /* var result=confirm("is class interesting");
+   if(result)
+  alert("Thank You");
+  else 
+  alert("Dont Sleep");
+  
+  var age=parseInt(window.prompt("Enter your Age:"));
+  if(age>60)
+   window.alert("Age is just a number");
+   else
+    window.alert("Hi");*/
+	
+	var n=parseInt(window.prompt("Enter any number:",10));
+	var data="";
+  if(n<0)
+   window.alert("Only positive number");
+   else
+   {
+   for(i=1;i<=10;i++)
+    {
+	 data=data+"\n"+n+"x"+i+"="+n*i;
+	 }
+    alert(data);
+  }
+  }
+ </script>
+</head>
+<body>
+<form>
+First Name: <input type="text" id="txtFN"> </input>
+<br/><br/>
+<input type="button" id="btnGo" onclick="return DisplayValues();" value="Go"/>
+</form>
+</body>
+</html>

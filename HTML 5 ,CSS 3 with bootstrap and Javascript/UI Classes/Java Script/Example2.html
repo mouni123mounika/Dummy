@@ -1,0 +1,28 @@
+<!---code to print multiplication table of given number---->
+<html>
+<head>
+<script type="text/javascript">
+function DisplayData()
+{
+ var n=parseInt(document.getElementById("txtInput").value);
+ document.write("<table border=1 cellspacing=0 cellpadding=5 >");
+  for(i=1;i<=20;i++)
+  {
+   if (i%2==0)
+    document.write("<tr><td bgcolor=lightblue>");
+	else
+	 document.write("<tr><td bgcolor=lightyellow>");
+    document.write(n+"x"+i+"="+n*i+"<br/>");
+	document.write("</tr></td>");
+	}
+	document.write("<table/>");
+}
+</script>	
+</head>
+<body>
+Enter any number:
+<input type="text" id="txtInput"/>
+</br>
+<input type="button" onclick="return DisplayData();" id="btnGo" value="Display"/>
+</body>
+</html>

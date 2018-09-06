@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript">
+	function storeData() {
+		//sessionStorage.setItem('username',document.getElementById('txtName').value);
+		localStorage.setItem('username',document.getElementById('txtName').value);
+		//alert("Data stored in Session");
+		alert("Data stored in Local");
+	}
+	function retrieveData() {
+		document.getElementById('txtName2').value = localStorage
+				.getItem('username');
+	}
+</script>
+</head>
+<body>
+	Enter Name :
+	<input type="text" id="txtName" name="txtName"  />
+	<br><br/>
+	<input type="button" id="Store Name" value="Store Name"onclick="return storeData();"/>
+	<br>
+	<hr/>
+	You Entered :
+	<input type="text" id="txtName2" name="txtName2"   />
+	<br><br/>
+	<input type="button" id="btnRetrieve" onclick="return retrieveData();" value="Retrieve Name" />
+	<br></br>
+</body>
+</html>

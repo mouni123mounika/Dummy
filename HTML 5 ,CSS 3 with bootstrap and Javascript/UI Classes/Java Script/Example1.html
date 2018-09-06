@@ -1,0 +1,19 @@
+<!---code to print hello NO.OF times--->
+<html>
+<head>
+<script type="text/javascript">
+function DisplayData()
+{
+var n=parseInt(document.getElementById("txtInput").value);
+  for(i=1;i<=n;i++)
+    document.write("Hello<br/>");
+}
+</script>	
+</head>
+<body>
+Enter any number:
+<input type="text" id="txtInput"/>
+</br>
+<input type="button" onclick="return DisplayData();" id="btnGo" value="Display"/>
+</body>
+</html>

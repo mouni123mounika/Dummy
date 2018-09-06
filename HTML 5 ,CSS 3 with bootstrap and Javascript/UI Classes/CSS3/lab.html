@@ -1,0 +1,64 @@
+<html>
+<head>
+<script type="text/javascript">
+function checkLoan()
+{
+	if(document.getElementById("txtCurrency").value>1500000)
+		{
+		alert("Amount of Loan should not be more than 15 lakhs");
+		}
+		if(document.getElementById("txtYears").value<7||document.getElementById("txtYears").value>15)
+			{
+			alert("Repayment period should be between 7 yrs to 15 yrs");
+		}
+		
+		p=(document.getElementById("txtCurrency").value);
+		t=(document.getElementById("txtInterest").value);
+		r=(document.getElementById("txtYears").value);
+		
+		var Amount=((p*t*r)/100);
+		document.getElementById("txtPayment").value=(Amount)/12;
+		document.getElementById("txtTotal").value=(Amount/12)+Amountz;
+		document.getElementById("txtTotalInterest").value=(Amount);
+	}
+</script>
+</head>
+<body>
+<form>
+<table>
+<h2>Enter Loan Information</h2>
+<tr>
+<td>1)Amount of the loan(any currency) :</td>
+<td><input type="number" id="txtCurrency" " ></td>
+</tr>
+<tr>
+<td>2)Annual percentage rate of interest :</td>
+<td><input type="number" id="txtInterest"></td>
+</tr>
+<tr>
+<td>3)Repayment period in years :</td>
+<td><input type="number" id="txtYears"></td>
+</tr>
+</table>
+<br>
+<tr>
+<input type="button" id="btnCompute" value="Compute" onclick="return checkLoan();">
+</tr>
+<table>
+<h2>Payment Information :</h2>
+<tr>
+<td>4)Your monthly payment will be:</td>
+<td><input type="text" id="txtPayment" ></td>
+</tr>
+<tr>
+<td>5)Your total payment will be :</td>
+<td><input type="text" id="txtTotal"></td>
+</tr>
+<tr>
+<td>6)Total interest Payment will be:</td>
+<td><input type="text" id="txtTotalInterest"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

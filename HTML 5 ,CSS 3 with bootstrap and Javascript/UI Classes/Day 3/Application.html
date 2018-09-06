@@ -1,0 +1,91 @@
+<html>
+<head>
+<script type="text/javascript">
+	function checkPassword() {
+		if (document.getElementById("pwdPassword").value != document
+				.getElementById("pwdRePassword").value) {
+			alert("Password not Matching");
+			return false;
+		} else {
+			//Textbox Value
+			alert("First Name : " + document.getElementById("txtFn").value);
+			alert("User Name : " + document.getElementById("txtUn").value);
+			
+			//dropdown value
+			var branchIndex = document.getElementById("ddlBranch").selectedIndex;
+			var branch = document.getElementById("ddlBranch").options[branchIndex].text;
+			alert("Branch :" + branch);
+			//radio button valye
+			alert("Gender :"
+					+ document.querySelector('input[name=rdGender]:checked').value);
+			return true;
+		}
+	}
+	
+</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</head>
+<body>
+	<form>
+		<center>
+			<h1>JOB APPLICATION</h1>
+			<hr />
+			<marquee>Last Date : 30-July-2018</marquee>
+			<hr />
+			<h2>Please Fill The Below Details</h2>
+			<hr width="400px" />
+			<table cellpadding=8 class="table-striped">
+				<tr>
+					<td align="right">First Name :</td>
+					<td><input type="text" id="txtFn"/ ></td>
+				</tr>
+				<tr>
+					<td align="right">User Name :</td>
+					<td><input type="text" id="txtUn"/ ></td>
+				</tr>
+				<tr>
+					<td align="right">Password :</td>
+					<td><input type="Password" id="pwdPassword"/ ></td>
+				</tr>
+				<tr>
+					<td align="right">Re-Enter Password :</td>
+					<td><input type="Password" id="pwdRePassword"/ ></td>
+				</tr>
+				<tr>
+					<td align="right">Address :</td>
+					<td><textarea rows="5" cols="40" id="taAddress"></textarea></td>
+				</tr>
+				<tr>
+					<td align="right">Select Branch :</td>
+					<td><select id="ddlBranch">
+							<option value="0" selected>Select...</option>
+							<option value="1">Electronics</option>
+							<option value="2">Electrical</option>
+							<option value="3">Chemical</option>
+							<option value="4">Civil</option>
+							<option value="5">Mechanical</option>
+							<option value="6">Computers</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td align="right">Hobbies :</td>
+					<td><input type="checkbox" value="0" id="chkCricket">Cricket</input>
+						<input type="checkbox" value="1" id="chkChess">Chess</input> <input
+						type="checkbox" value="2" id="chkTT">TT</input></td>
+				</tr>
+				<tr>
+					<td align="right">Gender :</td>
+					<td><input type="radio" id="rdMale" name="rdGender" value="Male">Male</input>
+                        <input type="radio" id="rdFemale"name="rdGender" value="Female">Female</input></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="Submit"
+						onclick="return checkPassword();" id="btnSave"
+						value="Save Details"></td>
+				</tr>
+			</table>
+		</center>
+	</form>
+</body>
+</html>

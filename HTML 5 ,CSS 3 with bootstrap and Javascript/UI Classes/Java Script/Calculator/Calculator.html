@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>CALCULATOR APPLICATION</title>
+<script type="text/javascript" src="mycode.js">
+
+</script>
+</head>
+<center>
+<body bgcolor=pink>
+<h1 align=center> MY CALCULATOR</H1>
+<table border=2 cellspacing=1 cellpadding=10>
+<tr>
+<td colspan=5 align=center bgcolor=#efe1ee><h2>Calculator</h2></td>
+</tr>
+<tr>
+<td colspan=2 align=center>Enter First Number:</td>
+<td colspan=3 align=center><input type="text" id="txtFN"></input></td>
+</tr>
+<tr>
+<td colspan=2 align=center>Enter Second Number:</td>
+<td colspan=3 align=center><input type="text" id="txtSN"></input></td>
+</tr>
+<tr>
+<td align=center><input type="button" id="btnAdd" onclick="return AddNum();" value= "+" ></input></td>
+<td align=center><input type="button" id=btnSub  onclick="return SubNum();" value= - ></input></td>
+<td align=center><input type="button" id=btnMul  onclick="return MulNum();" value= * ></input></td>
+<td align=center><input type="button" id=btnDiv onclick="return DivNum();" value= / ></input></td>
+<td align=center><input type="button" id=btnPow onclick="return PowNum();" value= ^ ></input></td>
+</tr>
+<tr>
+<td colspan=2 align=center>Result:</td>
+<td colspan=2 align=center><input type="text" id="txtResult"></input></td>
+<td  align=center><input type="button" id=btnclear onclick="return ClearValues();" value= clear ></input></td>
+</tr>
+</table>
+</body>
+</center>
+</html>

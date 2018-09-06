@@ -1,0 +1,22 @@
+h2 
+{
+	background-color: skyblue;
+}
+.cobj
+{
+	background-color:windowframe;
+	text-decoration: underline;
+}
+#pdetails
+{
+	background-color:#d9d6d0;
+}
+p.uppercase
+{
+	text-transform: uppercase; 
+}
+
+h1
+{
+	text-shadow:5px 5px green;
+}

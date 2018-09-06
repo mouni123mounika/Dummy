@@ -1,0 +1,31 @@
+<!---ChessBoard--->
+<html>
+<head>
+<script type="text/javascript">
+function DisplayData()
+{
+ var n=parseInt(document.getElementById("txtInput").value);
+ document.write("<table border=1 cellspacing=0 cellpadding=20 >");
+  for(i=1;i<=n;i++)
+  {
+   document.write("<tr>");
+   for(j=1;j<=n;j++)
+   {
+   if((i+j)%2==0)
+   document.write("<td bgcolor=black>&nbsp;</td>");
+   else
+   document.write("<td>&nbsp;</td>");
+   }
+   document.write("<tr>");
+   }
+	document.write("<table/>");
+}
+</script>	
+</head> 
+<body>
+Enter any number:
+<input type="text" id="txtInput"/>
+</br>
+<input type="button" onclick="return DisplayData();" id="btnGo" value="Display"/>
+</body>
+</html>

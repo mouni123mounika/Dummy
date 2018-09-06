@@ -1,0 +1,50 @@
+<html>
+<head>
+<script type="text/javascript">
+function nwindow()
+ {
+ alert("hi");
+  var w=document.getElementById("txt1").value;
+  var h=document.getElementById("txt2").value;
+  var l=document.getElementById("txt3").value;
+  var t=document.getElementById("txt4").value;
+  window.open("https://www.google.com","_blank","toolbar=yes,scrollbars=yes,resizable=yes,top="+t+",left="+l+",width="+w+",height="+h);
+ } 
+function ResetValues()
+{
+ document.getElementById("txt1").value="";
+ document.getElementById("txt2").value="";
+ document.getElementById("txt3").value="";
+ document.getElementById("txt4").value="";
+}
+</script>
+</head>
+<center>
+<table border=2 cellspacing=6 cellpadding=10 bordercolor=blue>
+<tr>
+<td colspan=4 align=center ><h2>Create a new window</h2></td>
+</tr>
+<tr>
+<td colspan=4 align=center ><h2>Window Size</h2></td>
+</tr>
+<tr>
+<td  align=center>Width:</td>
+<td align=center><input type="text" id="txt1"></input></td>
+<td  align=center>Height:</td>
+<td align=center><input type="text" id="txt2"></input></td>
+</tr>
+<tr>
+<td colspan=4 align=center ><h3>Position</h3></td>
+</tr>
+<tr>
+<td align=center ><h4>Left:</h4></td>
+<td align=center><input type="text" id="txt3"></input></td>
+<td align=center ><h4>Top:</h4></td>
+<td align=center><input type="text" id="txt4"></input></td>
+</tr>
+<td colspan=3 align=center><input type="button" id="btnNew" onclick="return nwindow();"  value= "New Window" ></input></td>
+<td align=center><input type="button" id=btnReset onclick="return ResetValues();" value= Reset ></input></td>
+</table>
+</body>
+</center>
+</html>
